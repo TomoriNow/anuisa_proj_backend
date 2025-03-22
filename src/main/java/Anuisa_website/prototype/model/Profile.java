@@ -1,4 +1,4 @@
-package Anuisa_website.prototype.repository;
+package Anuisa_website.prototype.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
