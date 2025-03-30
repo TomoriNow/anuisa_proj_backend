@@ -8,7 +8,6 @@ import java.util.Optional;
 public interface ProfileService {
     // Basic CRUD operations
     List<Profile> getAllProfiles();
-    List<Profile> getAllActiveProfiles();
     Optional<Profile> getProfileById(String uniId);
     Profile getProfileByEmail(String email);
     Profile saveProfile(Profile profile);

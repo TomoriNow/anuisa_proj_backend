@@ -1,6 +1,9 @@
 package Anuisa_website.prototype.model;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @Entity
@@ -13,16 +16,16 @@ import java.time.Instant;
 public class Profile {
     @Id
     private String uniId;
-    
+
     @Column(nullable = false)
     private Instant timestamp;
-    
+
     @Column(nullable = false, unique = true)
     private String email;
-    
+
     @Column(nullable = false)
     private String fullName;
-    
+
     private String nickname;
     private String degree;
     private String college;
@@ -31,7 +34,7 @@ public class Profile {
     private String intake;
     private String otherDegrees;
     private String researchProject;
-    private String linkedIn;
+    private String linkedin;
     private String instagram;
     private String portfolio;
     private String expertise;

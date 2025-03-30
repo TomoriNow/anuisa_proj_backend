@@ -32,11 +32,6 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public List<Profile> getAllActiveProfiles() {
-        return profileRepository.findByActiveTrue();
-    }
-
-    @Override
     public Optional<Profile> getProfileById(String uniId) {
         return profileRepository.findById(uniId);
     }

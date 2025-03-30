@@ -3,6 +3,7 @@ package Anuisa_website.prototype.controller;
 import Anuisa_website.prototype.model.Profile;
 import Anuisa_website.prototype.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/profiles")
 public class ProfileController {
 
@@ -22,12 +23,11 @@ public class ProfileController {
     
     // Display all active profiles
     @GetMapping
-    public String getAllProfiles(Model model) {
-        List<Profile> profiles = profileService.getAllActiveProfiles();
-        model.addAttribute("profiles", profiles);
-        return "profiles/index";
+    public ResponseEntity<List<Profile>> getAllProfiles(Model model) {
+        List<Profile> profiles = profileService.getAllProfiles();
+        return ResponseEntity.ok(profiles);
     }
-    
+
     // Search profiles
     @GetMapping("/search")
     public String searchProfiles(@RequestParam String keyword, Model model) {
@@ -59,7 +59,7 @@ public class ProfileController {
     
     // Process profile creation
     @PostMapping("/new")
-    public String createProfile(@ModelAttribute Profile profile, 
+    public String createProfile(@ModelAttribute Profile profile,
                                @RequestParam("imageFile") MultipartFile file,
                                RedirectAttributes redirectAttributes) {
         
